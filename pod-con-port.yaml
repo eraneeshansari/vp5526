@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: myapp
+spec:
+  containers:
+  - name: con1
+    image: nginx
+    ports:
+    - containerPort: 80
+      name: con1
+    - containerPort: 443
+      name: con1tls
+  - name: con2
+    image: tomcat
+    ports:
+    - containerPort: 8080
+      name: con2
