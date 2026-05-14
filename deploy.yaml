@@ -20,10 +20,20 @@ spec:
         app: mydep
     spec:
       containers:
-      - image: nginx
-        name: con1
+      - name: con1
+        image: nginx
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+
+            
+
 ---
 ---
 apiVersion: v1

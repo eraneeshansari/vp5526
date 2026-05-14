@@ -1,0 +1,24 @@
+# deploy metric server 
+
+oc apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+oc edit deploy -n kube-system metrics-server
+
+--kubelet-insecure-tls
+
+ oc adm top nodes crc
+
+
+for Kubernetes HPA walkthrough example 
+
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+use stress command from here 
+
+ oc run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never --command -- sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+
+
+oc run load-generator \
+  --image=busybox \
+  --restart=Never \
+  --command -- sh -c "while true; do wget -q -O- http://cpu-app; done"
